@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Equipos</title>
+</head>
+<body>
+<h1>Equipos</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Description</th>
+        <th>Status</th>
+    </tr>
+    <tr th:each="item:${Equipment}">
+        <td th:text="${item.id}">123</td>
+        <td th:text="${item.name}">Equipment Name</td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+/*
+Datos para verificar funcionamiento de crud para employee
+nota ejecutar solo las llaves para cada uno de los url
+*/
+/*Organization
+precondicion: N/A
+Metod post
+http://localhost:8080/organization*/
+[
+  {
+    "organizationKey": 1,
+    "hierarchicalLevelKey": 1,
+    "idPadre": null,
+    "name": "name",
+    "description": "desc",
+    "code": "GG",
+    "status": "1",
+    "gestion": "2018",
+    "start": "1970-01-17T10:10:38.002",
+    "end": "1970-01-17T10:10:38.002"
+  },
+  /*
+  employee
+  precondicion: organization
+  Metod:post
+  http://localhost:8080/employees
+  */
+  {
+    "employeeKey": 1,
+    "organizationKey": 1,
+    "employeeCode": "emp001",
+    "firstName": "carlos",
+    "lastName": "andrade",
+    "birthDate": "1970-01-17T10:10:38.002",
+    "gender": "M",
+    "nationality": "Bolivian",
+    "admissionDate": "1970-01-17T10:10:38.002",
+    "status": "1",
+    "photo": null,
+    "registrationDate": "1970-01-17T10:10:38.002"
+  },
+  /*
+  perosnal document
+  precondicion: organization, employee
+  MEtod: post
+  http://localhost:8080/personaldocuments
+  */
+  {
+    "personalDocumentKey": 1,
+    "employeeKey": 1,
+    "documentKey": 6,
+    "number": 354254,
+    "issueDate": "1970-01-17T10:10:38.002",
+    "dueDate": "1970-01-17T10:10:38.002",
+    "observation": "OBS",
+    "digital": null,
+    "status": "1",
+    "reference": "Ref"
+  },
+  /*
+  ontactInfomation
+  precondicion: organization, employee
+  MEtod: post
+  http://localhost:8080/contactinfos
+  */
+  {
+    "contactInformationKey": 1,
+    "typeContactKey": 1,
+    "employeeKey": 1,
+    "value": "1",
+    "reference": "ref"
+  },
+  /*
+  User
+  precondicion: organization, employee, Rol
+  MEtod: post
+  http://localhost:8080/users
+  */
+  {
+    "rolKey": 1,
+    "name": "Adm",
+    "description": "1Administrador"
+  },
+  /*
+  User
+  precondicion: organization, employee, Rol
+  MEtod: post
+  http://localhost:8080/users
+  */
+  {
+    "userKey": 1,
+    "employeeKey": 1,
+    "rolKey": 1,
+    "userName": "adm",
+    "password": "adm",
+    "status": "1"
+  },
+  /*
+    Institution
+    precondicion: NA
+    MEtod: post
+    http://localhost:8080/institutions
+    */
+  {
+    "institutionKey": 1,
+    "name": "UMSS",
+    "type": "Public"
+  },
+  /*
+  WorkExperience
+  precondicion: organization, employee, institution
+  Asumimos: tabla city poblada
+  MEtod: post
+  http://localhost:8080/workexperiences
+  */
+  {
+    "workExperienceKey": 1,
+    "institutionKey": 1,
+    "employeeKey": 1,
+    "cityKey": 1,
+    "position": "GERENTE",
+    "start": "1970-01-17T10:10:38.002",
+    "end": "1970-01-17T10:10:38.002",
+    "reasonChange": "nuevas Oportunidades"
+  },
+  /*
+  Academis Information
+  precondicion: organization, employee
+  Asumimos: tabla city, profesion,academic_level pobladas
+  MEtod: post
+  http://localhost:8080/academicinfos
+  */
+  {
+    "academicInformationKey": 1,
+    "employeeKey": 1,
+    "cityKey": 1,
+    "academicLevelKey": 1,
+    "professionKey": 1,
+    "status": "1",
+    "start": "1970-01-1",
+    "end": "1970-01-17",
+    "institution": "UMSS",
+    "academicTitle": "true",
+    "nationalTitle": "true"
+  }
+
+]

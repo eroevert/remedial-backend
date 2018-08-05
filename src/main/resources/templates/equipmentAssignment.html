@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Equipment Assignment</title>
+</head>
+<body>
+<h1>Equipment Assignment</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Employee</th>
+        <th>Equipment</th>
+        <th>Date assigned</th>
+        <th>Status</th>
+        <th>Observation</th>
+        <th>User assign</th>
+    </tr>
+    <tr>
+        <td th:text="${equipmentAssignment.id}">123</td>
+        <td th:text="${equipmentAssignment.employeeByEmployeeKey.firstName}">123</td>
+        <td th:text="${equipmentAssignment.equipmentByEquipmentKey.nombre}">123</td>
+        <td th:text="${equipmentAssignment.date}">123</td>
+        <td th:text="${equipmentAssignment.status}">Category Name</td>
+        <td th:text="${equipmentAssignment.observations}">Category Name</td>
+        <td th:text="${equipmentAssignment.user.userName}">Category Name</td>
+    </tr>
+</table>
+
+</body>
+</html>

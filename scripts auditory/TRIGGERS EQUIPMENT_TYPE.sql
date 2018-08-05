@@ -1,0 +1,56 @@
+USE SysSecurity;
+-- TRIGGER PARA REGISTRAR NUEVOS TIPOS DE EQUIPOS
+--VALIDACION
+IF (OBJECT_ID('[dbo].[INSERT_EQUIPMENT_TYPE]')) IS NOT NULL
+  DROP TRIGGER [dbo].[INSERT_EQUIPMENT_TYPE]
+GO
+--CREACION DEL TRIGGER
+CREATE TRIGGER INSERT_EQUIPMENT_TYPE
+ON EquipmentType FOR INSERT
+AS
+	SET NOCOUNT ON;
+	SET XACT_ABORT ON;	
+	DECLARE @EquipmentTypeKey INT,
+			@UserKey INT
+	SELECT @EquipmentTypeKey = EquipmentTypeKey, @UserKey = UserKey 
+	FROM inserted
+	INSERT INTO AUDITORY VALUES (@EquipmentTypeKey, 'INSERTED', @UserKey, 'EQUIPMENT TYPE', GETDATE())
+	GO
+--**********************************************************************************************************
+--TRIGGER PARA REGISTRAR TIPOS DE EQUIPOS ELIMINADOS
+USE SysSecurity;
+--VALIDACION
+IF (OBJECT_ID('[dbo].[DELETE_EQUIPMENT_TYPE]')) IS NOT NULL
+  DROP TRIGGER [dbo].[DELETE_EQUIPMENT_TYPE]
+GO
+--CREACION DEL TRIGGER
+CREATE TRIGGER DELETE_EQUIPMENT_TYPE
+ON EquipmentType FOR DELETE
+AS
+	SET NOCOUNT ON;
+	SET XACT_ABORT ON;
+	DECLARE @EquipmentTypeKey INT,
+			@UserKey INT
+	SELECT @EquipmentTypeKey = EquipmentTypeKey, @UserKey = UserKey 
+	FROM deleted
+	INSERT INTO AUDITORY VALUES (@EquipmentTypeKey, 'DELETED', @UserKey, 'EQUIPMENT TYPE', GETDATE())
+	GO
+--*********************************************************************************************************
+--TRIGGER PARA UPDATE DE TIPOS DE EQUIPOS
+USE SysSecurity;
+--VALIDACION
+IF (OBJECT_ID('[dbo].[UPDATE_EQUIPMENT_TYPE]')) IS NOT NULL
+  DROP TRIGGER [dbo].[UPDATE_EQUIPMENT_TYPE]
+GO
+--CREACION DEL TRIGGER
+CREATE TRIGGER UPDATE_EQUIPMENT_TYPE
+ON EquipmentType FOR UPDATE
+AS
+	SET NOCOUNT ON;
+	SET XACT_ABORT ON;
+	DECLARE @EquipmentTypeKey INT,
+			@UserKey INT
+	SELECT @EquipmentTypeKey = EquipmentTypeKey, @UserKey = UserKey 
+	FROM inserted
+	INSERT INTO AUDITORY VALUES (@EquipmentTypeKey, 'UPDATED', SYSTEM_USER, 'EQUIPMENT TYPE', GETDATE())
+	GO
